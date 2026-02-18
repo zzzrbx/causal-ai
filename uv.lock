@@ -193,11 +193,13 @@ dependencies = [
     { name = "langchain-chroma" },
     { name = "langchain-openai" },
     { name = "langgraph" },
+    { name = "numpy" },
     { name = "pandas" },
     { name = "prompt-toolkit" },
     { name = "pylint" },
     { name = "python-dotenv" },
     { name = "rich" },
+    { name = "scikit-learn" },
 ]
 
 [package.dev-dependencies]
@@ -216,11 +218,13 @@ requires-dist = [
     { name = "langchain-chroma", specifier = ">=1.1.0" },
     { name = "langchain-openai", specifier = ">=1.1.9" },
     { name = "langgraph" },
+    { name = "numpy", specifier = ">=2.3.5" },
     { name = "pandas", specifier = ">=3.0.0" },
     { name = "prompt-toolkit", specifier = ">=3.0.52" },
     { name = "pylint" },
     { name = "python-dotenv" },
     { name = "rich" },
+    { name = "scikit-learn", specifier = ">=1.6.1" },
 ]
 
 [package.metadata.requires-dev]

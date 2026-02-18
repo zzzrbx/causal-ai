@@ -14,11 +14,13 @@ dependencies = [
     "langchain-chroma>=1.1.0",
     "langchain-openai>=1.1.9",
     "langgraph",
+    "numpy>=2.3.5",
     "pandas>=3.0.0",
     "prompt-toolkit>=3.0.52",
     "pylint",
     "python-dotenv",
     "rich",
+    "scikit-learn>=1.6.1",
 ]
 
 [project.scripts]
