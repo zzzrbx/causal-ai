@@ -1,6 +1,7 @@
 """Sub-agent definitions for causal-ai."""
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 from langchain.agents.middleware import HostExecutionPolicy, ShellToolMiddleware
@@ -47,9 +48,9 @@ def build_subagent_list(config: Config) -> list[dict]:
             "tools": build_search_tools(config),
             "middleware": [
                 ShellToolMiddleware(
-                    workspace_root=".",
+                    workspace_root=str(config.data_path) if config.data_path else ".",
                     startup_commands=[
-                        "export PATH=\"$HOME/.local/bin:$PATH\"",
+                        f"export PATH=\"{Path(shutil.which('uv')).parent}:$PATH\"",
                     ],
                     execution_policy=HostExecutionPolicy(
                         command_timeout=120.0,
