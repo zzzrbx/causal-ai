@@ -45,7 +45,7 @@ uv run scripts/install_rag.py --force
 Copy or create a `.config` file in the project root:
 
 ```
-model=anthropic:claude-opus-4-6
+model=openai:gpt-5-mini
 ```
 
 Available keys:
@@ -55,6 +55,16 @@ Available keys:
 | `model` | `openai:gpt-5.2` | LangChain model string |
 | `data_path` | — | Optional path to a data directory, exposed to the agent as `/userdata/` |
 | `rag_index_path` | `/tmp/causal-ai-rag` | Where the ChromaDB index is stored |
+
+## Supported providers
+
+The `model` key accepts any [LangChain `init_chat_model`](https://python.langchain.com/docs/how_to/chat_models_universal_init/) string. The following providers are installed:
+
+| Provider | Prefix | Env var | Example |
+|----------|--------|---------|---------|
+| OpenAI | `openai:` | `OPENAI_API_KEY` | `openai:gpt-5.2` |
+| Anthropic | `anthropic:` | `ANTHROPIC_API_KEY` | `anthropic:claude-opus-4-6` |
+| Google Gemini | `google_genai:` | `GOOGLE_API_KEY` | `google_genai:gemini-2.0-flash` |
 
 ## Usage
 
