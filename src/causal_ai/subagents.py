@@ -51,7 +51,8 @@ def build_subagent_list(config: Config) -> list[dict]:
                 ShellToolMiddleware(
                     workspace_root=str(config.data_path) if config.data_path else ".",
                     startup_commands=[
-                        f"export PATH=\"{_VENV_BIN}:{Path(shutil.which('uv')).parent}:$PATH\"",
+                        f"export PATH=\"{Path(shutil.which('uv')).parent}:$PATH\"",
+                        f"export UV_PROJECT=\"{_VENV_BIN.parent.parent}\"",
                     ],
                     execution_policy=HostExecutionPolicy(
                         command_timeout=120.0,

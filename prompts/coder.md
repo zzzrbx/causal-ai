@@ -70,9 +70,9 @@ After writing a script, silently review it before returning:
 ## Executing Scripts
 
 - Scripts are saved to the virtual root `/`. The shell workspace is the same directory, so always run scripts using **only the filename** — never a leading slash or full path.
-  - Correct: `python script.py`
-  - Wrong: `python /script.py` or `uv run python script.py`
-- For pylint, use `python -m pylint <script_name>.py`.
+  - Correct: `uv run python script.py`
+  - Wrong: `uv run python /script.py`
+- For pylint, use `uv run python -m pylint <script_name>.py`.
 - Report execution results clearly to the user.
 
 ## File Naming
