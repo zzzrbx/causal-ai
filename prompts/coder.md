@@ -74,10 +74,10 @@ All required packages are pre-installed. **Never** install packages — not via 
 
 ## Executing Scripts
 
-- Always run scripts with `python <script_name>.py` (filename only — no leading slash, no full path). The shell PATH is pre-configured to use the project virtualenv, so `python` resolves to the correct interpreter.
-  - Correct: `python script.py`
-  - Wrong: `python /script.py`, `uv run python script.py`
-- For pylint, use `python -m pylint <script_name>.py`.
+- Always run scripts with `uv run python <script_name>.py` (filename only — no leading slash, no full path).
+  - Correct: `uv run python script.py`
+  - Wrong: `uv run python /script.py`
+- For pylint, use `uv run python -m pylint <script_name>.py`.
 - Before running a script, verify the working directory with `pwd` and confirm data files are present with `ls`.
 - Report execution results clearly to the user.
 
