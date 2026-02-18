@@ -47,7 +47,7 @@ Common workflows and decision patterns for causal inference tasks.
 
 ## Reference Documentation
 
-- DoWhy docs: `/project/docs/libraries/dowhy/`
-- EconML docs: `/project/docs/libraries/econml/`
-- causal-learn docs: `/project/docs/libraries/causal-learn/`
+- DoWhy source: `/project/.venv/lib/python3.12/site-packages/dowhy/`
+- EconML source: `/project/.venv/lib/python3.12/site-packages/econml/`
+- causal-learn source: `/project/.venv/lib/python3.12/site-packages/causallearn/`
 - Causality Handbook: `/project/docs/libraries/causality-handbook/` — tutorials and worked examples

@@ -9,13 +9,11 @@ DoWhy is a causal inference library for identification, estimation, and refutati
 
 ## Documentation Location
 
-All DoWhy docs are in `/project/docs/libraries/dowhy/`.
+DoWhy source is in `/project/.venv/lib/python3.12/site-packages/dowhy/`.
 
 ### Key Locations
 
-- **User guide**: `/project/docs/libraries/dowhy/docs/source/docs/` — tutorials and how-to guides
-- **Source code**: `/project/docs/libraries/dowhy/dowhy/` — Python source for understanding internals
-- **Tests**: `/project/docs/libraries/dowhy/tests/` — useful for understanding API usage patterns
+- **Source code**: `/project/.venv/lib/python3.12/site-packages/dowhy/` — Python source for understanding internals
 
 ### Key Modules
 
@@ -39,6 +37,6 @@ All DoWhy docs are in `/project/docs/libraries/dowhy/`.
 ### Search Tips
 
 - **Always use `glob: '*.py'` when grepping** — notebooks (.ipynb) are JSON and won't match
-- Grep for `CausalModel` to find usage examples
+- Grep in `/project/.venv/lib/python3.12/site-packages/dowhy/` for `CausalModel` to find usage examples
 - Grep for `method_name` to find available estimation methods
 - Grep for `refute_estimate` to find refutation patterns

@@ -9,12 +9,11 @@ EconML is a library for estimating heterogeneous treatment effects (CATE) using 
 
 ## Documentation Location
 
-All EconML docs are in `/project/docs/libraries/econml/`.
+EconML source is in `/project/.venv/lib/python3.12/site-packages/econml/`.
 
 ### Key Locations
 
-- **User guide**: `/project/docs/libraries/econml/doc/spec/` — estimation methods, model selection, validation
-- **Source code**: `/project/docs/libraries/econml/econml/` — Python source
+- **Source code**: `/project/.venv/lib/python3.12/site-packages/econml/` — Python source
 
 ### Key Estimators
 
@@ -39,6 +38,5 @@ All EconML docs are in `/project/docs/libraries/econml/`.
 ### Search Tips
 
 - **Always use `glob: '*.py'` when grepping** — notebooks (.ipynb) are JSON and won't match
-- Grep for `LinearDML` or `CausalForestDML` for DML examples
+- Grep in `/project/.venv/lib/python3.12/site-packages/econml/` for `LinearDML` or `CausalForestDML` for DML examples
 - Grep for `effect_inference` for confidence interval examples
-- Check `/project/docs/libraries/econml/doc/spec/` for method comparison

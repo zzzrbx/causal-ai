@@ -12,8 +12,8 @@ PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
 
 # Skill source paths are PARENT directories containing skill subdirectories.
 # SkillsMiddleware lists the parent, discovers subdirs, and loads SKILL.md from each.
-QA_SKILLS = ["/project/skills/"]
-CODER_SKILLS = ["/project/skills/"]
+QA_SKILLS = ["/project/skills/qa/"]
+CODER_SKILLS = ["/project/skills/coder/"]
 
 
 def _load_prompt(name: str) -> str:

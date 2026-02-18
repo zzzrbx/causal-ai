@@ -10,6 +10,7 @@ import argparse
 import ast
 import importlib.util
 import shutil
+import warnings
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -19,6 +20,10 @@ from langchain_openai import OpenAIEmbeddings
 from causal_ai.config import Config
 
 load_dotenv()
+
+warnings.filterwarnings(
+    "ignore", category=DeprecationWarning, message=".*invalid escape sequence.*"
+)
 
 
 def _find_package_root(package_name: str) -> Path | None:

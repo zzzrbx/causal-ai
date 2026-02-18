@@ -9,12 +9,11 @@ causal-learn is a library for causal discovery — learning causal structure fro
 
 ## Documentation Location
 
-All causal-learn docs are in `/project/docs/libraries/causal-learn/`.
+causal-learn source is in `/project/.venv/lib/python3.12/site-packages/causallearn/`.
 
 ### Key Locations
 
-- **Source code**: `/project/docs/libraries/causal-learn/causallearn/` — Python source
-- **Tests**: `/project/docs/libraries/causal-learn/tests/` — usage examples in test form
+- **Source code**: `/project/.venv/lib/python3.12/site-packages/causallearn/` — Python source
 
 ### Key Algorithms
 
@@ -47,6 +46,5 @@ All causal-learn docs are in `/project/docs/libraries/causal-learn/`.
 ### Search Tips
 
 - **Always use `glob: '*.py'` when grepping** — notebooks (.ipynb) are JSON and won't match
-- Grep for `def pc(` or `def fci(` to find algorithm entry points
+- Grep in `/project/.venv/lib/python3.12/site-packages/causallearn/` for `def pc(` or `def fci(` to find algorithm entry points
 - Grep for `indep_test` to find available independence tests
-- Check `tests/` directory for concise usage examples
