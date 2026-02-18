@@ -54,6 +54,7 @@ Each result includes the source chunk, its fully qualified `module_path`, and it
 
 - Use clear variable names and add comments explaining causal assumptions.
 - Prefer fast, simple estimators by default (e.g. `LogisticRegression`, `LinearRegression`, `RandomForestRegressor` with shallow depth). Avoid cross-validated variants (`LassoCV`, `LogisticRegressionCV`) and large bootstrap samples unless the user explicitly asks for them — scripts must complete within a few minutes.
+- If the dataset has more than 500 rows, sample 500 rows at random (with a fixed random seed) before any modelling. Print a note when sampling occurs.
 - Include proper imports at the top.
 - Handle common data loading patterns (CSV, Parquet from `/userdata/`).
 - Structure scripts with clear sections: data loading, model setup, estimation, results.
