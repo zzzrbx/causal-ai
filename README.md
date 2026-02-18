@@ -5,14 +5,13 @@
 
 ![causal-ai banner](.github/banner.png)
 
-A CLI-based causal inference agent built on [DeepAgents](https://github.com/anthropics/deep-agents) (LangGraph). It combines an orchestrator with two specialised sub-agents — one for causal reasoning and one for writing and executing Python code — to help you work through causal inference problems interactively.
+A CLI-based causal inference agent. 
 
 ## What it does
 
 - **Answers causal questions** — identification strategies, adjustment sets, assumptions, interpretation of results
 - **Writes and runs code** — DoWhy, EconML, and causal-learn scripts generated, linted, and executed on your machine
 - **Searches library source** — a local RAG index over DoWhy, EconML, and causal-learn lets the coder agent look up correct API usage before writing code
-- **References the Causality Handbook** — a curated set of causal inference chapters available to the QA agent for conceptual grounding
 
 ## Prerequisites
 
