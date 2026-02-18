@@ -18,6 +18,9 @@ console = Console()
 WELCOME_PATH = Path(__file__).resolve().parent.parent.parent / "prompts" / "welcome.md"
 
 
+_THREAD_CONFIG = {"configurable": {"thread_id": "main"}}
+
+
 def _run_repl(orchestrator) -> None:
     """Main REPL loop: read input, send to orchestrator, display response."""
     session: PromptSession[str] = PromptSession(history=InMemoryHistory())
@@ -38,7 +41,8 @@ def _run_repl(orchestrator) -> None:
         try:
             with console.status("[bold cyan]Thinking...[/bold cyan]"):
                 result = orchestrator.invoke(
-                    {"messages": [HumanMessage(content=user_input)]}
+                    {"messages": [HumanMessage(content=user_input)]},
+                    config=_THREAD_CONFIG,
                 )
         except KeyboardInterrupt:
             console.print("\n[yellow]Cancelled.[/yellow]")

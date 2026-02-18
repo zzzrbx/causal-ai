@@ -3,8 +3,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from langchain.agents.middleware import HostExecutionPolicy, ShellToolMiddleware
+
 from causal_ai.config import Config
-from causal_ai.rag import build_search_code_tool
+from causal_ai.rag import build_search_tools
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
 
@@ -42,6 +44,17 @@ def build_subagent_list(config: Config) -> list[dict]:
             ),
             "system_prompt": _load_prompt("coder"),
             "skills": CODER_SKILLS,
-            "tools": [build_search_code_tool(config)],
+            "tools": build_search_tools(config),
+            "middleware": [
+                ShellToolMiddleware(
+                    workspace_root=".",
+                    startup_commands=[
+                        "export PATH=\"$HOME/.local/bin:$PATH\"",
+                    ],
+                    execution_policy=HostExecutionPolicy(
+                        command_timeout=120.0,
+                    ),
+                )
+            ],
         },
     ]

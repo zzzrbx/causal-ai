@@ -18,6 +18,3 @@ wheels/
 
 # Local config
 .config
-
-# Planning docs
-specs/

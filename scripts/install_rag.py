@@ -12,10 +12,13 @@ import importlib.util
 import shutil
 from pathlib import Path
 
+from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
 from causal_ai.config import Config
+
+load_dotenv()
 
 
 def _find_package_root(package_name: str) -> Path | None:
@@ -141,21 +144,23 @@ def main() -> None:
         print(f"--force: deleting existing index at {index_path}")
         shutil.rmtree(index_path)
 
-    chroma = Chroma(
-        collection_name="code",
-        embedding_function=OpenAIEmbeddings(model="text-embedding-3-small"),
-        persist_directory=str(index_path),
-    )
-
-    if not args.force:
-        existing = chroma.get(limit=1)
-        if existing and existing.get("ids"):
-            print("Index already populated. Use --force to re-index.")
-            return
-
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     packages = ["dowhy", "econml", "causallearn"]
     grand_total = 0
+
     for pkg in packages:
+        chroma = Chroma(
+            collection_name=pkg,
+            embedding_function=embeddings,
+            persist_directory=str(index_path),
+        )
+
+        if not args.force:
+            existing = chroma.get(limit=1)
+            if existing and existing.get("ids"):
+                print(f"[{pkg}] already populated — skipping. Use --force to re-index.")
+                continue
+
         print(f"\n[{pkg}]")
         grand_total += _index_package(pkg, chroma)
 

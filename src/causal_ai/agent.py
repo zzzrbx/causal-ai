@@ -7,6 +7,7 @@ from pathlib import Path
 from deepagents import create_deep_agent
 from deepagents.backends import CompositeBackend, FilesystemBackend
 from langchain.chat_models import init_chat_model
+from langgraph.checkpoint.memory import MemorySaver
 
 from causal_ai.config import Config
 from causal_ai.subagents import build_subagent_list
@@ -59,4 +60,5 @@ def create_orchestrator(config: Config):
         system_prompt=system_prompt,
         subagents=subagent_list,
         backend=backend,
+        checkpointer=MemorySaver(),
     )
