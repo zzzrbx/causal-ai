@@ -5,7 +5,7 @@
 
 ![causal-ai banner](.github/banner.png)
 
-> **causal-ai is a learning tool.** It is designed for exploring causal inference concepts and running small, self-contained scripts — not for production pipelines or large-scale data processing.
+> **causal-ai is experimental and a learning tool.** It is designed for exploring causal inference concepts and running small, self-contained scripts — not for production pipelines or large-scale data processing. Expect rough edges.
 
 ## What it does
 
