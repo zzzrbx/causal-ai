@@ -1,5 +1,5 @@
 [project]
-name = "causal-ai"
+name = "dowhy-agent"
 version = "0.1.0"
 description = "CLI-based causal inference agent built on DeepAgents"
 readme = "README.md"
