@@ -52,7 +52,7 @@ Available keys:
 
 | Key | Default | Description |
 |-----|---------|-------------|
-| `model` | `anthropic:claude-opus-4-6` | LangChain model string |
+| `model` | `openai:gpt-5.2` | LangChain model string |
 | `data_path` | — | Optional path to a data directory, exposed to the agent as `/userdata/` |
 | `rag_index_path` | `/tmp/causal-ai-rag` | Where the ChromaDB index is stored |
 
