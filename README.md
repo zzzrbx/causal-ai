@@ -9,7 +9,6 @@
 
 - **Answers causal questions** — identification strategies, adjustment sets, assumptions, interpretation of results
 - **Writes and runs code** — DoWhy, EconML, and causal-learn scripts generated, linted, and executed on your machine
-- **Searches library source** — a local RAG index over DoWhy, EconML, and causal-learn lets the coder agent look up correct API usage before writing code
 
 ## Security
 
