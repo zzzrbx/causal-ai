@@ -61,11 +61,15 @@ Each result includes the source chunk, its fully qualified `module_path`, and it
 
 ## Reviewing Your Own Code
 
-After writing a script, silently review it before returning:
+After writing a script, you **must** review it before returning — this is not optional:
 
-1. Run `python -m pylint <script_name>.py` and fix any issues found. Do not report pylint output to the user.
+1. Run `uv run python -m pylint <script_name>.py` and fix any issues found. Do not report pylint output to the user.
 2. Check for proper library API usage against the documentation you searched.
 3. Fix critical issues; ignore minor style warnings.
+
+## Package Installation
+
+All required packages are pre-installed. **Never** install packages — not via shell commands (`pip install`, `uv add`) and not inside scripts (`subprocess`, `os.system`, `importlib`). pip is disabled in this environment. If a package appears to be missing, you have used the wrong import or library name — check the documentation instead.
 
 ## Executing Scripts
 
