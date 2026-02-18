@@ -14,8 +14,8 @@ from causal_ai.subagents import build_subagent_list
 
 
 class _SafeMemorySaver(MemorySaver):
-    """MemorySaver that skips writes containing non-serializable LangGraph
-    runtime objects (e.g. Send) produced when tools return Command."""
+    """MemorySaver that skips non-serializable LangGraph runtime objects
+    (e.g. Send) produced when tools return Command."""
 
     def put_writes(self, config, writes, task_id, task_path=""):
         serializable = []
@@ -26,6 +26,20 @@ class _SafeMemorySaver(MemorySaver):
             except TypeError:
                 pass
         super().put_writes(config, serializable, task_id, task_path)
+
+    def put(self, config, checkpoint, metadata, new_versions):
+        safe_versions = {}
+        channel_values = checkpoint.get("channel_values", {})
+        for k, v in new_versions.items():
+            if k in channel_values:
+                try:
+                    self.serde.dumps_typed(channel_values[k])
+                    safe_versions[k] = v
+                except TypeError:
+                    pass
+            else:
+                safe_versions[k] = v
+        return super().put(config, checkpoint, metadata, safe_versions)
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
 
