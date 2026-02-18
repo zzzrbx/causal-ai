@@ -15,7 +15,10 @@ def test_orchestrator_returns_response():
     config = Config.load()
     orchestrator = create_orchestrator(config)
 
-    result = orchestrator.invoke({"messages": [HumanMessage(content="Say hello.")]})
+    result = orchestrator.invoke(
+        {"messages": [HumanMessage(content="Say hello.")]},
+        config={"configurable": {"thread_id": "test-thread"}},
+    )
 
     assert result["messages"], "No messages returned"
     content = result["messages"][-1].content
