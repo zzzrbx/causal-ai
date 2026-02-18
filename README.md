@@ -5,8 +5,6 @@
 
 ![causal-ai banner](.github/banner.png)
 
-A CLI-based causal inference agent. 
-
 ## What it does
 
 - **Answers causal questions** — identification strategies, adjustment sets, assumptions, interpretation of results
