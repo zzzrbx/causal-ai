@@ -58,7 +58,7 @@ def build_subagent_list(config: Config) -> list[dict]:
                         "export PIP_NO_INSTALL=1",
                     ],
                     execution_policy=HostExecutionPolicy(
-                        command_timeout=900.0,
+                        command_timeout=1800.0,
                     ),
                 )
             ],
