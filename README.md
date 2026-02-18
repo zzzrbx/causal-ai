@@ -11,6 +11,10 @@
 - **Writes and runs code** — DoWhy, EconML, and causal-learn scripts generated, linted, and executed on your machine
 - **Searches library source** — a local RAG index over DoWhy, EconML, and causal-learn lets the coder agent look up correct API usage before writing code
 
+## Security
+
+The coder agent can write and execute arbitrary shell commands on your machine. It is recommended to run causal-ai inside a **VM or Docker container**. Sandboxing is the user's responsibility.
+
 ## Prerequisites
 
 - Python 3.12+
