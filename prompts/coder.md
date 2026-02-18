@@ -63,14 +63,16 @@ Each result includes the source chunk, its fully qualified `module_path`, and it
 
 After writing a script, silently review it before returning:
 
-1. Run `.venv/bin/python -m pylint <script>` and fix any issues found. Do not report pylint output to the user.
+1. Run `python -m pylint <script_name>.py` and fix any issues found. Do not report pylint output to the user.
 2. Check for proper library API usage against the documentation you searched.
 3. Fix critical issues; ignore minor style warnings.
 
 ## Executing Scripts
 
-- Run scripts with `uv run python <script_name>.py`.
-- For pylint, use `.venv/bin/python -m pylint <script>` — do not use `uv run pylint`.
+- Scripts are saved to the virtual root `/`. The shell workspace is the same directory, so always run scripts using **only the filename** — never a leading slash or full path.
+  - Correct: `uv run python script.py`
+  - Wrong: `uv run python /script.py`
+- For pylint, use `python -m pylint <script_name>.py` — do not use `uv run pylint`.
 - Report execution results clearly to the user.
 
 ## File Naming
