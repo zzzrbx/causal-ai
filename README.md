@@ -1,5 +1,7 @@
 # causal-ai
 
+![causal-ai banner](.github/banner.png)
+
 CLI-based causal inference agent built on DeepAgents (LangGraph).
 
 ## Prerequisites
