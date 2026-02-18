@@ -7,7 +7,6 @@ A causal inference assistant powered by DeepAgents.
 - **Answer causal inference questions** — concepts, methods, interpretation
 - **Write Python scripts** — using DoWhy, EconML, and causal-learn
 - **Run scripts** — execute and show results
-- **Review code** — check quality with pylint and provide feedback
 
 ## Quick start
 
