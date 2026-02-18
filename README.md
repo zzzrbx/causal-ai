@@ -64,7 +64,6 @@ The `model` key accepts any [LangChain `init_chat_model`](https://python.langcha
 |----------|--------|---------|---------|
 | OpenAI | `openai:` | `OPENAI_API_KEY` | `openai:gpt-5.2` |
 | Anthropic | `anthropic:` | `ANTHROPIC_API_KEY` | `anthropic:claude-opus-4-6` |
-| Google Gemini | `google_genai:` | `GOOGLE_API_KEY` | `google_genai:gemini-2.0-flash` |
 
 ## Usage
 
