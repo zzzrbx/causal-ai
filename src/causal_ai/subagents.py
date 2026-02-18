@@ -53,7 +53,7 @@ def build_subagent_list(config: Config) -> list[dict]:
                     startup_commands=[
                         f"export PATH=\"{Path(shutil.which('uv')).parent}:$PATH\"",
                         f"export UV_PROJECT=\"{_VENV_BIN.parent.parent}\"",
-                        "pip() { echo 'pip is disabled — all required packages are pre-installed.'; return 1; }",
+                        "pip() { echo 'pip is disabled.'; return 1; }",
                         "export -f pip",
                         "export PIP_NO_INSTALL=1",
                     ],
