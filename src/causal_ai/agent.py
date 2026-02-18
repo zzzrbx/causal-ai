@@ -12,6 +12,21 @@ from langgraph.checkpoint.memory import MemorySaver
 from causal_ai.config import Config
 from causal_ai.subagents import build_subagent_list
 
+
+class _SafeMemorySaver(MemorySaver):
+    """MemorySaver that skips writes containing non-serializable LangGraph
+    runtime objects (e.g. Send) produced when tools return Command."""
+
+    def put_writes(self, config, writes, task_id, task_path=""):
+        serializable = []
+        for channel, value in writes:
+            try:
+                self.serde.dumps_typed(value)
+                serializable.append((channel, value))
+            except TypeError:
+                pass
+        super().put_writes(config, serializable, task_id, task_path)
+
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
 
 
@@ -60,5 +75,5 @@ def create_orchestrator(config: Config):
         system_prompt=system_prompt,
         subagents=subagent_list,
         backend=backend,
-        checkpointer=MemorySaver(),
+        checkpointer=_SafeMemorySaver(),
     )
