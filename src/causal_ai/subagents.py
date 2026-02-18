@@ -10,6 +10,7 @@ from causal_ai.config import Config
 from causal_ai.rag import build_search_tools
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
+_VENV_BIN = Path(__file__).resolve().parent.parent.parent / ".venv" / "bin"
 
 # Skill source paths are PARENT directories containing skill subdirectories.
 # SkillsMiddleware lists the parent, discovers subdirs, and loads SKILL.md from each.
@@ -50,7 +51,7 @@ def build_subagent_list(config: Config) -> list[dict]:
                 ShellToolMiddleware(
                     workspace_root=str(config.data_path) if config.data_path else ".",
                     startup_commands=[
-                        f"export PATH=\"{Path(shutil.which('uv')).parent}:$PATH\"",
+                        f"export PATH=\"{_VENV_BIN}:{Path(shutil.which('uv')).parent}:$PATH\"",
                     ],
                     execution_policy=HostExecutionPolicy(
                         command_timeout=120.0,
