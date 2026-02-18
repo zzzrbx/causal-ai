@@ -13,6 +13,7 @@ load_dotenv()
 
 def test_orchestrator_returns_response():
     config = Config.load()
+    config.model = "openai:gpt-5.2"
     orchestrator = create_orchestrator(config)
 
     result = orchestrator.invoke(
